@@ -12,37 +12,20 @@
 var todosLosProductos = [];
 var categoriaActual   = "Todos";
 
-// ============================================================
-// DETECCIÓN DE PÁGINA ACTUAL
-// Cada función solo se activa si el elemento que necesita existe
-// ============================================================
-
-// ── Menú hamburguesa (todas las páginas) ────────────────────
 (function menuHamburguesa() {
   var btn = document.getElementById("btnMenu");
   var nav = document.getElementById("nav-principal");
   if (!btn || !nav) return;
-
-  btn.addEventListener("click", function() {
-    nav.classList.toggle("abierto");
-  });
-
+  btn.addEventListener("click", function() { nav.classList.toggle("abierto"); });
   nav.querySelectorAll("a").forEach(function(enlace) {
-    enlace.addEventListener("click", function() {
-      nav.classList.remove("abierto");
-    });
+    enlace.addEventListener("click", function() { nav.classList.remove("abierto"); });
   });
 })();
 
-
-// ============================================================
-// PÁGINA: PRODUCTOS — carga y grilla
-// ============================================================
 (function paginaProductos() {
   var contenedor = document.getElementById("contenedor-productos");
-  if (!contenedor) return; // No estamos en productos.html
+  if (!contenedor) return;
 
-  // 1. Cargar JSON con fetch
   fetch("data/productos.json")
     .then(function(respuesta) {
       if (!respuesta.ok) throw new Error("No se pudo leer productos.json");
@@ -54,35 +37,25 @@ var categoriaActual   = "Todos";
     })
     .catch(function(error) {
       console.error("Error al cargar productos.json:", error);
-      contenedor.innerHTML =
-        '<p class="sin-resultados" style="color:#dc2626;">' +
-        '⚠ Error al cargar los productos. Verifica que el archivo data/productos.json exista.</p>';
+      contenedor.innerHTML = '<p class="sin-resultados" style="color:#dc2626;">⚠ Error al cargar los productos.</p>';
     });
 
-  // 2. Filtros por categoría
   var botones = document.querySelectorAll(".btn-filtro");
   for (var i = 0; i < botones.length; i++) {
     botones[i].addEventListener("click", function() {
-      for (var j = 0; j < botones.length; j++) {
-        botones[j].classList.remove("activo");
-      }
+      for (var j = 0; j < botones.length; j++) { botones[j].classList.remove("activo"); }
       this.classList.add("activo");
       categoriaActual = this.getAttribute("data-categoria");
-
       if (categoriaActual === "Todos") {
         mostrarProductos(todosLosProductos);
       } else {
-        var filtrados = todosLosProductos.filter(function(p) {
-          return p.categoria === categoriaActual;
-        });
+        var filtrados = todosLosProductos.filter(function(p) { return p.categoria === categoriaActual; });
         mostrarProductos(filtrados);
       }
     });
   }
 })();
 
-
-// ── Función: mostrar productos en la grilla del DOM ─────────
 function mostrarProductos(lista) {
   var contenedor = document.getElementById("contenedor-productos");
   var conteoEl   = document.getElementById("conteoResultados");
@@ -95,55 +68,33 @@ function mostrarProductos(lista) {
   }
 
   if (conteoEl) {
-    conteoEl.textContent = lista.length === 1
-      ? "1 producto encontrado"
-      : lista.length + " productos encontrados";
+    conteoEl.textContent = lista.length === 1 ? "1 producto encontrado" : lista.length + " productos encontrados";
   }
 
   var html = "";
-
   for (var i = 0; i < lista.length; i++) {
     var p = lista[i];
-
-    // Badge de stock
     var badgeClase, badgeTexto;
-    if (p.stock === 0) {
-      badgeClase = "stock-agotado";
-      badgeTexto = "Sin stock";
-    } else if (p.stock <= 3) {
-      badgeClase = "stock-poco";
-      badgeTexto = "¡Solo " + p.stock + " disponibles!";
-    } else {
-      badgeClase = "stock-ok";
-      badgeTexto = p.stock + " en stock";
-    }
+    if (p.stock === 0)       { badgeClase = "stock-agotado"; badgeTexto = "Sin stock"; }
+    else if (p.stock <= 3)   { badgeClase = "stock-poco";    badgeTexto = "¡Solo " + p.stock + " disponibles!"; }
+    else                     { badgeClase = "stock-ok";      badgeTexto = p.stock + " en stock"; }
 
-    // Precio en formato chileno
     var precio = "$" + p.precio.toLocaleString("es-CL");
-
-    // Ícono de respaldo si no carga la imagen
-    var icono = obtenerIcono(p.categoria);
-
-    // Imagen real con fallback automático
+    var icono  = obtenerIcono(p.categoria);
     var imgHtml = "";
+
     if (p.imagen && p.imagen !== "") {
       imgHtml =
-        '<img src="' + p.imagen + '" ' +
-             'alt="' + p.nombre + '" ' +
-             'class="producto-img" ' +
-             'onerror="this.style.display=\'none\';document.getElementById(\'fb-' + p.id + '\').style.display=\'flex\'">' +
+        '<img src="' + p.imagen + '" alt="' + p.nombre + '" class="producto-img" ' +
+        'onerror="this.style.display=\'none\';document.getElementById(\'fb-' + p.id + '\').style.display=\'flex\'">' +
         '<div id="fb-' + p.id + '" class="img-fallback">' + icono + '</div>';
     } else {
       imgHtml = '<div class="img-fallback" style="display:flex">' + icono + '</div>';
     }
 
-    // Construir la tarjeta
     html +=
       '<article class="producto">' +
-        '<div class="producto-imagen">' +
-          imgHtml +
-          '<span class="badge-cat">' + p.categoria + '</span>' +
-        '</div>' +
+        '<div class="producto-imagen">' + imgHtml + '<span class="badge-cat">' + p.categoria + '</span></div>' +
         '<div class="producto-body">' +
           '<p class="producto-nombre">' + p.nombre + '</p>' +
           '<p class="producto-desc">'   + p.descripcion + '</p>' +
@@ -152,11 +103,9 @@ function mostrarProductos(lista) {
         '</div>' +
       '</article>';
   }
-
   contenedor.innerHTML = html;
 }
 
-// Emoji de respaldo por categoría
 function obtenerIcono(categoria) {
   if (categoria === "Audio")          return "🎧";
   if (categoria === "Periféricos")    return "🖱️";
@@ -168,58 +117,39 @@ function obtenerIcono(categoria) {
   return "📦";
 }
 
-
-// ============================================================
-// PÁGINA: COMPRA — select, resumen y validaciones
-// ============================================================
 (function paginaCompra() {
   var formCompra = document.getElementById("formCompra");
-  if (!formCompra) return; // No estamos en compra.html
+  if (!formCompra) return;
 
-  // Cargar JSON para rellenar el select y validar stock
   fetch("data/productos.json")
     .then(function(r) { return r.json(); })
-    .then(function(datos) {
-      todosLosProductos = datos;
-      rellenarSelect(datos);
-    })
+    .then(function(datos) { todosLosProductos = datos; rellenarSelect(datos); })
     .catch(function(err) { console.error("Error cargando JSON en compra.html:", err); });
 
-  // Actualizar resumen al cambiar producto o cantidad
   var selectEl   = document.getElementById("productoSelect");
   var cantidadEl = document.getElementById("cantidadInput");
   if (selectEl)   selectEl.addEventListener("change", actualizarResumen);
   if (cantidadEl) cantidadEl.addEventListener("input",  actualizarResumen);
 
-  // Validar al enviar
   formCompra.addEventListener("submit", function(ev) {
     ev.preventDefault();
-    if (validarFormCompra()) {
-      actualizarResumen();
-      this.submit();
-    }
+    if (validarFormCompra()) { actualizarResumen(); this.submit(); }
   });
 })();
 
-// ── Rellenar <select> con productos del JSON ─────────────────
 function rellenarSelect(lista) {
   var select = document.getElementById("productoSelect");
   if (!select) return;
-
   for (var i = 0; i < lista.length; i++) {
-    var p = lista[i];
+    var p  = lista[i];
     var op = document.createElement("option");
-    op.value = p.id;
+    op.value       = p.nombre;
     op.textContent = p.nombre + " — $" + p.precio.toLocaleString("es-CL");
-    if (p.stock === 0) {
-      op.disabled = true;
-      op.textContent += " (sin stock)";
-    }
+    if (p.stock === 0) { op.disabled = true; op.textContent += " (sin stock)"; }
     select.appendChild(op);
   }
 }
 
-// ── Resumen/boleta en pantalla en tiempo real ────────────────
 function actualizarResumen() {
   var select    = document.getElementById("productoSelect");
   var cantInput = document.getElementById("cantidadInput");
@@ -227,36 +157,29 @@ function actualizarResumen() {
   var divConten = document.getElementById("resumenContenido");
   if (!select || !cantInput || !divBox || !divConten) return;
 
-  var idElegido = parseInt(select.value);
-  var cantidad  = parseInt(cantInput.value);
+  var nombreElegido = select.value;
+  var cantidad      = parseInt(cantInput.value);
 
-  if (!idElegido || isNaN(cantidad) || cantidad <= 0) {
-    divBox.style.display = "none";
-    return;
-  }
+  if (!nombreElegido || isNaN(cantidad) || cantidad <= 0) { divBox.style.display = "none"; return; }
 
   var prod = null;
   for (var i = 0; i < todosLosProductos.length; i++) {
-    if (todosLosProductos[i].id === idElegido) { prod = todosLosProductos[i]; break; }
+    if (todosLosProductos[i].nombre === nombreElegido) { prod = todosLosProductos[i]; break; }
   }
   if (!prod) { divBox.style.display = "none"; return; }
 
   var subtotal = prod.precio * cantidad;
-  var fecha = new Date().toLocaleDateString("es-CL", {
-    day: "2-digit", month: "2-digit", year: "numeric",
-    hour: "2-digit", minute: "2-digit"
-  });
+  var fecha    = new Date().toLocaleDateString("es-CL", { day:"2-digit", month:"2-digit", year:"numeric", hour:"2-digit", minute:"2-digit" });
 
   divConten.innerHTML =
-    '<div class="resumen-linea"><span>Producto</span><span>'          + prod.nombre + '</span></div>' +
-    '<div class="resumen-linea"><span>Precio unitario</span><span>$'  + prod.precio.toLocaleString("es-CL") + '</span></div>' +
-    '<div class="resumen-linea"><span>Cantidad</span><span>'          + cantidad + '</span></div>' +
-    '<div class="resumen-linea"><span>Fecha</span><span>'             + fecha + '</span></div>' +
-    '<div class="resumen-total"><span>TOTAL A PAGAR</span><span>$'    + subtotal.toLocaleString("es-CL") + '</span></div>';
+    '<div class="resumen-linea"><span>Producto</span><span>'         + prod.nombre + '</span></div>' +
+    '<div class="resumen-linea"><span>Precio unitario</span><span>$' + prod.precio.toLocaleString("es-CL") + '</span></div>' +
+    '<div class="resumen-linea"><span>Cantidad</span><span>'         + cantidad + '</span></div>' +
+    '<div class="resumen-linea"><span>Fecha</span><span>'            + fecha + '</span></div>' +
+    '<div class="resumen-total"><span>TOTAL A PAGAR</span><span>$'   + subtotal.toLocaleString("es-CL") + '</span></div>';
 
   divBox.style.display = "block";
 
-  // Guardar en campos ocultos para el correo
   var campoDetalle  = document.getElementById("campo-detalle");
   var campoSubtotal = document.getElementById("campo-subtotal");
   var campoTotal    = document.getElementById("campo-total");
@@ -268,10 +191,8 @@ function actualizarResumen() {
   if (campoFecha)    campoFecha.value    = fecha;
 }
 
-// ── Validación formulario de COMPRA ─────────────────────────
 function validarFormCompra() {
   var hayError = false;
-
   limpiarErrores(["err-nombre","err-correo","err-telefono","err-direccion","err-producto","err-cantidad","err-general"]);
   quitarMarcas(["nombreCliente","correoCliente","telefonoCliente","direccionCliente","productoSelect","cantidadInput"]);
 
@@ -282,49 +203,26 @@ function validarFormCompra() {
   var idProd    = document.getElementById("productoSelect").value;
   var cantidad  = parseInt(document.getElementById("cantidadInput").value);
 
-  // Nombre obligatorio
-  if (nombre === "") {
-    ponerError("err-nombre", "El nombre completo es obligatorio.");
-    marcarError("nombreCliente"); hayError = true;
-  } else { marcarOk("nombreCliente"); }
+  if (nombre === "")           { ponerError("err-nombre",    "El nombre completo es obligatorio.");          marcarError("nombreCliente");    hayError = true; } else { marcarOk("nombreCliente"); }
+  if (correo === "")           { ponerError("err-correo",    "El correo electrónico es obligatorio.");       marcarError("correoCliente");    hayError = true; }
+  else if (!esCorreoValido(correo)) { ponerError("err-correo", "Formato inválido. Ejemplo: nombre@dominio.cl"); marcarError("correoCliente"); hayError = true; }
+  else { marcarOk("correoCliente"); }
 
-  // Correo obligatorio + formato
-  if (correo === "") {
-    ponerError("err-correo", "El correo electrónico es obligatorio.");
-    marcarError("correoCliente"); hayError = true;
-  } else if (!esCorreoValido(correo)) {
-    ponerError("err-correo", "Formato inválido. Ejemplo: nombre@dominio.cl");
-    marcarError("correoCliente"); hayError = true;
-  } else { marcarOk("correoCliente"); }
+  if (telefono !== "" && !esTelefonoValido(telefono)) {
+    ponerError("err-telefono", "El teléfono solo debe contener números (7 a 15 dígitos).");
+    marcarError("telefonoCliente"); hayError = true;
+  } else if (telefono !== "") { marcarOk("telefonoCliente"); }
 
-  // Teléfono opcional, pero si se ingresa solo números
-  if (telefono !== "") {
-    if (!esTelefonoValido(telefono)) {
-      ponerError("err-telefono", "El teléfono solo debe contener números (7 a 15 dígitos).");
-      marcarError("telefonoCliente"); hayError = true;
-    } else { marcarOk("telefonoCliente"); }
-  }
+  if (direccion === "")        { ponerError("err-direccion", "La dirección de despacho es obligatoria.");    marcarError("direccionCliente"); hayError = true; } else { marcarOk("direccionCliente"); }
+  if (idProd === "")           { ponerError("err-producto",  "Debes seleccionar al menos un producto.");     marcarError("productoSelect");   hayError = true; } else { marcarOk("productoSelect"); }
 
-  // Dirección obligatoria
-  if (direccion === "") {
-    ponerError("err-direccion", "La dirección de despacho es obligatoria.");
-    marcarError("direccionCliente"); hayError = true;
-  } else { marcarOk("direccionCliente"); }
-
-  // Debe seleccionar un producto
-  if (idProd === "") {
-    ponerError("err-producto", "Debes seleccionar al menos un producto.");
-    marcarError("productoSelect"); hayError = true;
-  } else { marcarOk("productoSelect"); }
-
-  // Cantidad mayor a 0 y que no supere el stock del JSON
   if (isNaN(cantidad) || cantidad <= 0) {
     ponerError("err-cantidad", "La cantidad debe ser un número mayor a 0.");
     marcarError("cantidadInput"); hayError = true;
   } else if (idProd !== "") {
     var prodElegido = null;
     for (var i = 0; i < todosLosProductos.length; i++) {
-      if (todosLosProductos[i].id === parseInt(idProd)) { prodElegido = todosLosProductos[i]; break; }
+      if (todosLosProductos[i].nombre === idProd) { prodElegido = todosLosProductos[i]; break; }
     }
     if (prodElegido && cantidad > prodElegido.stock) {
       ponerError("err-cantidad", "Stock insuficiente. Solo hay " + prodElegido.stock + " unidades.");
@@ -332,22 +230,14 @@ function validarFormCompra() {
     } else { marcarOk("cantidadInput"); }
   }
 
-  if (hayError) {
-    ponerError("err-general", "Por favor corrige los campos marcados en rojo antes de continuar.");
-  }
-
+  if (hayError) ponerError("err-general", "Por favor corrige los campos marcados en rojo antes de continuar.");
   return !hayError;
 }
 
-
-// ============================================================
-// PÁGINA: CONTACTO — validaciones
-// ============================================================
 (function paginaContacto() {
   var formContacto = document.getElementById("formContacto");
-  if (!formContacto) return; // No estamos en contacto.html
+  if (!formContacto) return;
 
-  // Contador de caracteres en tiempo real
   var txtMensaje   = document.getElementById("cMensaje");
   var spanContador = document.getElementById("contadorChars");
 
@@ -364,15 +254,12 @@ function validarFormCompra() {
 
   formContacto.addEventListener("submit", function(ev) {
     ev.preventDefault();
-    if (validarFormContacto()) {
-      this.submit();
-    }
+    if (validarFormContacto()) this.submit();
   });
 })();
 
 function validarFormContacto() {
   var hayError = false;
-
   limpiarErrores(["cerr-nombre","cerr-correo","cerr-asunto","cerr-mensaje"]);
   quitarMarcas(["cNombre","cCorreo","cAsunto","cMensaje"]);
 
@@ -381,71 +268,21 @@ function validarFormContacto() {
   var asunto  = document.getElementById("cAsunto").value.trim();
   var mensaje = document.getElementById("cMensaje").value.trim();
 
-  if (nombre === "") {
-    ponerError("cerr-nombre", "El nombre es obligatorio.");
-    marcarError("cNombre"); hayError = true;
-  } else { marcarOk("cNombre"); }
-
-  if (correo === "") {
-    ponerError("cerr-correo", "El correo electrónico es obligatorio.");
-    marcarError("cCorreo"); hayError = true;
-  } else if (!esCorreoValido(correo)) {
-    ponerError("cerr-correo", "Formato inválido. Ejemplo: nombre@dominio.cl");
-    marcarError("cCorreo"); hayError = true;
-  } else { marcarOk("cCorreo"); }
-
-  if (asunto === "") {
-    ponerError("cerr-asunto", "El asunto es obligatorio.");
-    marcarError("cAsunto"); hayError = true;
-  } else { marcarOk("cAsunto"); }
-
-  if (mensaje.length < 20) {
-    ponerError("cerr-mensaje",
-      "El mensaje debe tener mínimo 20 caracteres. Actualmente tiene " + mensaje.length + ".");
-    marcarError("cMensaje"); hayError = true;
-  } else { marcarOk("cMensaje"); }
+  if (nombre === "")           { ponerError("cerr-nombre",  "El nombre es obligatorio.");                                      marcarError("cNombre");  hayError = true; } else { marcarOk("cNombre"); }
+  if (correo === "")           { ponerError("cerr-correo",  "El correo electrónico es obligatorio.");                          marcarError("cCorreo");  hayError = true; }
+  else if (!esCorreoValido(correo)) { ponerError("cerr-correo", "Formato inválido. Ejemplo: nombre@dominio.cl");               marcarError("cCorreo");  hayError = true; }
+  else { marcarOk("cCorreo"); }
+  if (asunto === "")           { ponerError("cerr-asunto",  "El asunto es obligatorio.");                                      marcarError("cAsunto");  hayError = true; } else { marcarOk("cAsunto"); }
+  if (mensaje.length < 20)     { ponerError("cerr-mensaje", "El mensaje debe tener mínimo 20 caracteres. Tiene " + mensaje.length + "."); marcarError("cMensaje"); hayError = true; } else { marcarOk("cMensaje"); }
 
   return !hayError;
 }
 
+function esCorreoValido(correo) { return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(correo); }
+function esTelefonoValido(tel)  { return /^[0-9+\s\-]{7,15}$/.test(tel); }
 
-// ============================================================
-// FUNCIONES AUXILIARES — usadas en todas las páginas
-// ============================================================
-
-function esCorreoValido(correo) {
-  return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(correo);
-}
-
-function esTelefonoValido(tel) {
-  return /^[0-9+\s\-]{7,15}$/.test(tel);
-}
-
-function ponerError(idSpan, mensaje) {
-  var el = document.getElementById(idSpan);
-  if (el) el.textContent = mensaje;
-}
-
-function limpiarErrores(lista) {
-  for (var i = 0; i < lista.length; i++) {
-    var el = document.getElementById(lista[i]);
-    if (el) el.textContent = "";
-  }
-}
-
-function marcarError(id) {
-  var el = document.getElementById(id);
-  if (el) { el.classList.add("campo-error"); el.classList.remove("campo-ok"); }
-}
-
-function marcarOk(id) {
-  var el = document.getElementById(id);
-  if (el) { el.classList.remove("campo-error"); el.classList.add("campo-ok"); }
-}
-
-function quitarMarcas(lista) {
-  for (var i = 0; i < lista.length; i++) {
-    var el = document.getElementById(lista[i]);
-    if (el) { el.classList.remove("campo-error"); el.classList.remove("campo-ok"); }
-  }
-}
+function ponerError(idSpan, mensaje) { var el = document.getElementById(idSpan); if (el) el.textContent = mensaje; }
+function limpiarErrores(lista) { for (var i = 0; i < lista.length; i++) { var el = document.getElementById(lista[i]); if (el) el.textContent = ""; } }
+function marcarError(id) { var el = document.getElementById(id); if (el) { el.classList.add("campo-error"); el.classList.remove("campo-ok"); } }
+function marcarOk(id)    { var el = document.getElementById(id); if (el) { el.classList.remove("campo-error"); el.classList.add("campo-ok"); } }
+function quitarMarcas(lista) { for (var i = 0; i < lista.length; i++) { var el = document.getElementById(lista[i]); if (el) { el.classList.remove("campo-error"); el.classList.remove("campo-ok"); } } }
