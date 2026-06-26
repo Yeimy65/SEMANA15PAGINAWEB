@@ -1,0 +1,83 @@
+[
+  {
+    "id": 1,
+    "nombre": "Audífonos Bluetooth NovaSound",
+    "descripcion": "Audífonos inalámbricos con cancelación de ruido y 20 horas de batería.",
+    "precio": 19990,
+    "stock": 15,
+    "categoria": "Audio",
+    "imagen": "img/audifonos.svg"
+  },
+  {
+    "id": 2,
+    "nombre": "Mouse Gamer NovaClick",
+    "descripcion": "Mouse óptico de alta precisión con 6 botones programables y luces RGB.",
+    "precio": 14990,
+    "stock": 20,
+    "categoria": "Periféricos",
+    "imagen": "img/mouse.svg"
+  },
+  {
+    "id": 3,
+    "nombre": "Teclado Mecánico NovaType",
+    "descripcion": "Teclado mecánico retroiluminado, switches rojos, diseño compacto TKL.",
+    "precio": 29990,
+    "stock": 10,
+    "categoria": "Periféricos",
+    "imagen": "img/teclado.svg"
+  },
+  {
+    "id": 4,
+    "nombre": "Cargador Rápido NovaPower 30W",
+    "descripcion": "Cargador USB-C de carga rápida compatible con la mayoría de smartphones.",
+    "precio": 9990,
+    "stock": 30,
+    "categoria": "Energía",
+    "imagen": "img/cargador.svg"
+  },
+  {
+    "id": 5,
+    "nombre": "Power Bank NovaCharge 10000mAh",
+    "descripcion": "Batería externa portátil con doble puerto USB y carga rápida de 18W.",
+    "precio": 17990,
+    "stock": 12,
+    "categoria": "Energía",
+    "imagen": "img/powerbank.svg"
+  },
+  {
+    "id": 6,
+    "nombre": "Smartwatch NovaFit",
+    "descripcion": "Reloj inteligente con monitor de ritmo cardíaco, GPS y notificaciones.",
+    "precio": 39990,
+    "stock": 3,
+    "categoria": "Wearables",
+    "imagen": "img/smartwatch.svg"
+  },
+  {
+    "id": 7,
+    "nombre": "Parlante Portátil NovaBeat",
+    "descripcion": "Parlante Bluetooth resistente al agua con sonido de alta fidelidad.",
+    "precio": 24990,
+    "stock": 14,
+    "categoria": "Audio",
+    "imagen": "img/parlante.svg"
+  },
+  {
+    "id": 8,
+    "nombre": "Soporte para Notebook NovaStand",
+    "descripcion": "Soporte ergonómico ajustable de aluminio para notebooks de 11 a 17 pulgadas.",
+    "precio": 12990,
+    "stock": 18,
+    "categoria": "Accesorios",
+    "imagen": "img/soporte.svg"
+  },
+  {
+    "id": 9,
+    "nombre": "Hub USB-C NovaConnect 6 en 1",
+    "descripcion": "Hub multipuerto con HDMI, USB 3.0, lector SD y carga USB-C.",
+    "precio": 21990,
+    "stock": 0,
+    "categoria": "Accesorios",
+    "imagen": "img/hub.svg"
+  }
+]

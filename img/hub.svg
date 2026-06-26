@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <rect width="200" height="200" fill="#ecfdf5" rx="16"/>
+  <text x="100" y="115" font-size="80" text-anchor="middle">🔗</text>
+  <text x="100" y="155" font-size="13" text-anchor="middle" fill="#065f46" font-family="Arial">Hub USB-C</text>
+</svg>
