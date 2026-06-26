@@ -1,4 +1,4 @@
-# NovaTech – Tienda de Tecnología
+ Tienda de Tecnología
 
 Sitio web estático desarrollado para la evaluación UMM de Programación Web (IEI-054), Instituto Profesional Santo Tomás.
 
