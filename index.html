@@ -3,187 +3,97 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>NovaTech - Tienda de Tecnología</title>
+  <title>TECNOLOGIS - Inicio</title>
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-  <!-- ===================== HEADER ===================== -->
   <header>
     <div class="header-inner">
-      <div class="logo">
-        <span class="logo-icon">⚡</span>
-        <span class="logo-nombre">NovaTech</span>
-      </div>
-      <nav id="nav-menu">
-        <a href="#inicio">Inicio</a>
-        <a href="#quienes-somos">Quiénes somos</a>
-        <a href="#productos">Productos</a>
-        <a href="#contacto">Contacto</a>
+      <a href="index.html" class="logo">
+        <span class="logo-icono">💻</span>
+        <span class="logo-nombre">TECNOLOGIS</span>
+      </a>
+      <nav id="nav-principal">
+        <a href="index.html" class="activo">Inicio</a>
+        <a href="quienes-somos.html">Quiénes somos</a>
+        <a href="productos.html">Productos</a>
+        <a href="compra.html">Comprar</a>
+        <a href="contacto.html">Contacto</a>
       </nav>
-      <button id="btnMenu" class="btn-hamburguesa" aria-label="Abrir menú">&#9776;</button>
+      <button class="btn-menu" id="btnMenu" aria-label="Abrir menú">&#9776;</button>
     </div>
   </header>
 
   <main>
 
-    <!-- ===================== INICIO ===================== -->
-    <section id="inicio">
-      <div class="inicio-grid">
-        <div class="inicio-texto">
-          <h2>Bienvenido a <span class="texto-azul">NovaTech</span></h2>
-          <p class="inicio-desc">
-            Tu tienda online de tecnología con los mejores accesorios y periféricos
-            para el trabajo, el estudio y el entretenimiento.
+    <!-- HERO PRINCIPAL -->
+    <div class="hero">
+      <div class="hero-grid">
+        <div class="hero-texto">
+          <p class="hero-etiqueta">Tu tienda tech de confianza</p>
+          <h2>Bienvenido a <span class="nombre-tienda">TECNOLOGIS</span></h2>
+          <p class="hero-bajada">
+            Somos tu destino para encontrar la mejor tecnología: audífonos, periféricos,
+            wearables, monitores y mucho más — al mejor precio de Chile.
           </p>
-          <p>Audífonos, teclados, wearables, cargadores y más — todo probado y al mejor precio.</p>
-          <a href="#productos" class="btn-principal">Ver productos &darr;</a>
+          <p class="hero-sub">Envío rápido · Garantía real · Soporte post venta</p>
+          <div class="hero-botones">
+            <a href="productos.html" class="btn-primario">Ver productos</a>
+            <a href="quienes-somos.html" class="btn-secundario">Conocernos</a>
+          </div>
         </div>
-        <div class="inicio-tarjetas">
-          <div class="mini-card"><span>🎧</span><p>Audio premium</p></div>
-          <div class="mini-card"><span>⚡</span><p>Carga rápida</p></div>
-          <div class="mini-card"><span>🖱️</span><p>Gaming</p></div>
-          <div class="mini-card"><span>⌚</span><p>Wearables</p></div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ===================== QUIÉNES SOMOS ===================== -->
-    <section id="quienes-somos">
-      <h2>Quiénes somos</h2>
-      <p>
-        NovaTech es una tienda chilena especializada en tecnología accesible y de calidad.
-        Nacimos con la convicción de que cada persona merece un equipo que funcione bien,
-        sin tener que pagar precios excesivos.
-      </p>
-
-      <div class="valores-grid">
-        <div class="valor-card">
-          <span class="valor-icon">🎯</span>
-          <h3>Misión</h3>
-          <p>Acercar tecnología de calidad a hogares y equipos de trabajo de todo Chile, al precio justo.</p>
-        </div>
-        <div class="valor-card">
-          <span class="valor-icon">🔭</span>
-          <h3>Visión</h3>
-          <p>Ser la tienda tecnológica de referencia para quienes valoran calidad y buen servicio.</p>
-        </div>
-        <div class="valor-card">
-          <span class="valor-icon">🤝</span>
-          <h3>Valores</h3>
-          <p>Transparencia en los precios, soporte real y productos siempre probados antes de vender.</p>
+        <div class="hero-cards">
+          <div class="hero-card"><span>🎧</span><p>Audio</p></div>
+          <div class="hero-card"><span>🖥️</span><p>Monitores</p></div>
+          <div class="hero-card"><span>⚡</span><p>Energía</p></div>
+          <div class="hero-card"><span>⌚</span><p>Wearables</p></div>
+          <div class="hero-card"><span>🖱️</span><p>Periféricos</p></div>
+          <div class="hero-card"><span>💾</span><p>Almacenamiento</p></div>
         </div>
       </div>
-    </section>
+    </div>
 
-    <!-- ===================== PRODUCTOS ===================== -->
-    <section id="productos">
-      <h2>Productos</h2>
-      <p>Los productos se cargan desde <strong>data/productos.json</strong> con JavaScript.</p>
-
-      <!-- Filtros por categoría -->
-      <div class="filtros" id="filtros">
-        <button class="btn-filtro activo" data-categoria="Todos">Todos</button>
-        <button class="btn-filtro" data-categoria="Audio">Audio</button>
-        <button class="btn-filtro" data-categoria="Periféricos">Periféricos</button>
-        <button class="btn-filtro" data-categoria="Energía">Energía</button>
-        <button class="btn-filtro" data-categoria="Wearables">Wearables</button>
-        <button class="btn-filtro" data-categoria="Accesorios">Accesorios</button>
+    <!-- ACCESOS RÁPIDOS A PÁGINAS -->
+    <div class="card-seccion">
+      <h2>¿Qué quieres hacer?</h2>
+      <p>Navega por las secciones de nuestra tienda:</p>
+      <div class="accesos-grid" style="margin-top:24px;">
+        <a href="quienes-somos.html" class="acceso-card">
+          <span class="acceso-icono">🏪</span>
+          <h3>Quiénes somos</h3>
+          <p>Conoce nuestra historia, misión y valores.</p>
+        </a>
+        <a href="productos.html" class="acceso-card">
+          <span class="acceso-icono">🛍️</span>
+          <h3>Productos</h3>
+          <p>Explora nuestro catálogo con 12 productos tecnológicos.</p>
+        </a>
+        <a href="compra.html" class="acceso-card">
+          <span class="acceso-icono">🛒</span>
+          <h3>Comprar</h3>
+          <p>Selecciona un producto y recibe tu boleta por correo.</p>
+        </a>
       </div>
-
-      <!-- Grilla de productos — JavaScript la llena -->
-      <div id="contenedor-productos">
-        <p class="msg-cargando">Cargando productos...</p>
-      </div>
-
-      <!-- ===== FORMULARIO DE COMPRA ===== -->
-      <h3>Formulario de compra</h3>
-      <p>Selecciona un producto, ingresa tus datos y envía tu pedido por correo.</p>
-
-      <form id="formCompra" action="https://formsubmit.co/y.morales55@alumnos.santotomas.cl" method="POST">
-        <!-- Campos ocultos FormSubmit -->
-        <input type="hidden" name="_subject" value="🛒 Nueva compra - NovaTech">
-        <input type="hidden" name="_template" value="table">
-        <input type="hidden" name="_captcha" value="false">
-        <input type="hidden" name="_next" value="gracias.html">
-        <!-- Campos ocultos generados por JavaScript -->
-        <input type="hidden" id="detalleProducto" name="detalle_producto">
-        <input type="hidden" id="totalCompra"     name="total_compra">
-        <input type="hidden" id="fechaCompra"     name="fecha_compra">
-
-        <label for="nombreCompra">Nombre completo: *</label>
-        <input type="text" id="nombreCompra" name="nombre_cliente" placeholder="Ej: María González">
-        <span class="error" id="error-nombre"></span>
-
-        <label for="correoCompra">Correo electrónico: *</label>
-        <input type="email" id="correoCompra" name="correo_cliente" placeholder="nombre@correo.cl">
-        <span class="error" id="error-correo"></span>
-
-        <label for="telefonoCompra">Teléfono (solo números, opcional):</label>
-        <input type="tel" id="telefonoCompra" name="telefono" placeholder="912345678">
-        <span class="error" id="error-telefono"></span>
-
-        <label for="productoSelect">Producto: *</label>
-        <select id="productoSelect" name="producto_nombre">
-          <option value="">-- Selecciona un producto --</option>
-        </select>
-        <span class="error" id="error-producto"></span>
-
-        <label for="cantidad">Cantidad: *</label>
-        <input type="number" id="cantidad" name="cantidad" min="1" value="1">
-        <span class="error" id="error-cantidad"></span>
-
-        <!-- Resumen generado por JavaScript -->
-        <div id="resumenCompra" class="resumen-compra" style="display:none;">
-          <h4>📄 Resumen de tu compra</h4>
-          <p id="resumenTexto"></p>
-        </div>
-
-        <span class="error error-global" id="error-general"></span>
-
-        <button type="submit">Enviar compra por correo ✉</button>
-      </form>
-    </section>
-
-    <!-- ===================== CONTACTO ===================== -->
-    <section id="contacto">
-      <h2>Formulario de contacto</h2>
-      <p>¿Tienes dudas sobre algún producto? Escríbenos y te respondemos a la brevedad.</p>
-
-      <form id="formContacto" action="https://formsubmit.co/y.morales55@alumnos.santotomas.cl" method="POST">
-        <input type="hidden" name="_subject" value="📬 Nuevo contacto - NovaTech">
-        <input type="hidden" name="_template" value="table">
-        <input type="hidden" name="_captcha" value="false">
-        <input type="hidden" name="_next" value="gracias.html">
-
-        <label for="nombreContacto">Nombre: *</label>
-        <input type="text" id="nombreContacto" name="nombre" placeholder="Tu nombre completo">
-        <span class="error" id="error-cnombre"></span>
-
-        <label for="correoContacto">Correo: *</label>
-        <input type="email" id="correoContacto" name="correo" placeholder="nombre@correo.cl">
-        <span class="error" id="error-ccorreo"></span>
-
-        <label for="asunto">Asunto: *</label>
-        <input type="text" id="asunto" name="asunto" placeholder="¿En qué podemos ayudarte?">
-        <span class="error" id="error-asunto"></span>
-
-        <label for="mensaje">
-          Mensaje: *
-          <span id="contadorChars" class="contador">(mínimo 20 caracteres)</span>
-        </label>
-        <textarea id="mensaje" name="mensaje" placeholder="Escribe tu consulta aquí..."></textarea>
-        <span class="error" id="error-mensaje"></span>
-
-        <button type="submit">Enviar mensaje ✉</button>
-      </form>
-    </section>
+    </div>
 
   </main>
 
-  <!-- ===================== FOOTER ===================== -->
   <footer>
-    <p>© 2025 NovaTech — Tienda de Tecnología — Sitio académico · Programación Web IEI-054 · Instituto Profesional Santo Tomás</p>
+    <div class="footer-inner">
+      <div class="footer-logo">
+        <span>💻</span>
+        <span class="logo-nombre">TECNOLOGIS</span>
+      </div>
+      <div class="footer-links">
+        <a href="index.html">Inicio</a>
+        <a href="quienes-somos.html">Nosotros</a>
+        <a href="productos.html">Productos</a>
+        <a href="compra.html">Comprar</a>
+        <a href="contacto.html">Contacto</a>
+      </div>
+    </div>
+    <p class="footer-copy">© 2025 TECNOLOGIS · Tu tienda tech de confianza · Programación Web IEI-054 · Instituto Profesional Santo Tomás</p>
   </footer>
 
   <script src="js/app.js"></script>

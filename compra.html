@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TECNOLOGIS - Comprar</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <header>
+    <div class="header-inner">
+      <a href="index.html" class="logo">
+        <span class="logo-icono">💻</span>
+        <span class="logo-nombre">TECNOLOGIS</span>
+      </a>
+      <nav id="nav-principal">
+        <a href="index.html">Inicio</a>
+        <a href="quienes-somos.html">Quiénes somos</a>
+        <a href="productos.html">Productos</a>
+        <a href="compra.html" class="activo">Comprar</a>
+        <a href="contacto.html">Contacto</a>
+      </nav>
+      <button class="btn-menu" id="btnMenu" aria-label="Abrir menú">&#9776;</button>
+    </div>
+  </header>
+
+  <main>
+    <div class="card-seccion">
+      <h2>Formulario de compra</h2>
+      <p>Selecciona un producto, ingresa tus datos y te enviamos la boleta a tu correo electrónico.</p>
+
+      <form id="formCompra"
+        action="https://formsubmit.co/y.morales55@alumnos.santotomas.cl"
+        method="POST">
+
+        <!-- Campos ocultos FormSubmit -->
+        <input type="hidden" name="_subject"  value="🛒 Nueva compra - TECNOLOGIS">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_captcha"  value="false">
+        <input type="hidden" name="_next"     value="gracias.html">
+
+        <!-- Campos ocultos que JavaScript llena con el detalle de la boleta -->
+        <input type="hidden" id="campo-detalle"  name="detalle_compra">
+        <input type="hidden" id="campo-subtotal" name="subtotal_compra">
+        <input type="hidden" id="campo-total"    name="total_compra">
+        <input type="hidden" id="campo-fecha"    name="fecha_compra">
+
+        <!-- Grilla 2 columnas: datos cliente | selección de producto -->
+        <div class="compra-grid">
+
+          <!-- Columna 1: Datos del cliente -->
+          <div>
+            <h3>Datos del cliente</h3>
+
+            <label for="nombreCliente">Nombre completo *</label>
+            <input type="text" id="nombreCliente" name="nombre_cliente"
+              placeholder="Ej: María González">
+            <span class="error" id="err-nombre"></span>
+
+            <label for="correoCliente">Correo electrónico *</label>
+            <input type="email" id="correoCliente" name="correo_cliente"
+              placeholder="nombre@correo.cl">
+            <span class="error" id="err-correo"></span>
+
+            <label for="telefonoCliente">Teléfono (solo números, opcional)</label>
+            <input type="tel" id="telefonoCliente" name="telefono"
+              placeholder="912345678">
+            <span class="error" id="err-telefono"></span>
+
+            <label for="direccionCliente">Dirección de despacho *</label>
+            <input type="text" id="direccionCliente" name="direccion"
+              placeholder="Av. Ejemplo 1234, Santiago">
+            <span class="error" id="err-direccion"></span>
+          </div>
+
+          <!-- Columna 2: Selección de producto -->
+          <div>
+            <h3>Detalle del pedido</h3>
+
+            <label for="productoSelect">Producto *</label>
+            <select id="productoSelect" name="producto_nombre">
+              <option value="">-- Selecciona un producto --</option>
+            </select>
+            <span class="error" id="err-producto"></span>
+
+            <label for="cantidadInput">Cantidad *</label>
+            <input type="number" id="cantidadInput" name="cantidad"
+              min="1" value="1">
+            <span class="error" id="err-cantidad"></span>
+
+            <!-- Resumen/boleta visible en pantalla -->
+            <div id="resumenCompra" class="resumen-box" style="display:none;">
+              <h4>📄 Resumen de tu compra</h4>
+              <div id="resumenContenido"></div>
+            </div>
+          </div>
+
+        </div>
+
+        <span class="error error-global" id="err-general"></span>
+        <button type="submit" class="btn-enviar">Enviar compra y recibir boleta ✉</button>
+        <p class="nota-form">Recibirás una copia del comprobante en tu correo. Este es un comprobante académico de prueba.</p>
+
+      </form>
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-logo">
+        <span>💻</span>
+        <span class="logo-nombre">TECNOLOGIS</span>
+      </div>
+      <div class="footer-links">
+        <a href="index.html">Inicio</a>
+        <a href="quienes-somos.html">Nosotros</a>
+        <a href="productos.html">Productos</a>
+        <a href="compra.html">Comprar</a>
+        <a href="contacto.html">Contacto</a>
+      </div>
+    </div>
+    <p class="footer-copy">© 2025 TECNOLOGIS · Tu tienda tech de confianza · Programación Web IEI-054 · Instituto Profesional Santo Tomás</p>
+  </footer>
+
+  <script src="js/app.js"></script>
+</body>
+</html>

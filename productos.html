@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TECNOLOGIS - Productos</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <header>
+    <div class="header-inner">
+      <a href="index.html" class="logo">
+        <span class="logo-icono">💻</span>
+        <span class="logo-nombre">TECNOLOGIS</span>
+      </a>
+      <nav id="nav-principal">
+        <a href="index.html">Inicio</a>
+        <a href="quienes-somos.html">Quiénes somos</a>
+        <a href="productos.html" class="activo">Productos</a>
+        <a href="compra.html">Comprar</a>
+        <a href="contacto.html">Contacto</a>
+      </nav>
+      <button class="btn-menu" id="btnMenu" aria-label="Abrir menú">&#9776;</button>
+    </div>
+  </header>
+
+  <main>
+    <div class="card-seccion">
+      <h2>Nuestros productos</h2>
+      <p>Catálogo cargado desde <strong>data/productos.json</strong> con JavaScript.</p>
+
+      <!-- Filtros por categoría -->
+      <div class="filtros" id="contenedor-filtros">
+        <button class="btn-filtro activo" data-categoria="Todos">Todos</button>
+        <button class="btn-filtro" data-categoria="Audio">Audio</button>
+        <button class="btn-filtro" data-categoria="Periféricos">Periféricos</button>
+        <button class="btn-filtro" data-categoria="Energía">Energía</button>
+        <button class="btn-filtro" data-categoria="Wearables">Wearables</button>
+        <button class="btn-filtro" data-categoria="Monitores">Monitores</button>
+        <button class="btn-filtro" data-categoria="Almacenamiento">Almacenamiento</button>
+        <button class="btn-filtro" data-categoria="Accesorios">Accesorios</button>
+      </div>
+
+      <p class="conteo" id="conteoResultados"></p>
+
+      <!-- Grilla de productos — JavaScript la construye desde el JSON -->
+      <div id="contenedor-productos">
+        <div class="cargando">
+          <div class="spinner"></div>
+          <p>Cargando productos...</p>
+        </div>
+      </div>
+
+      <div style="margin-top:28px; text-align:center;">
+        <a href="compra.html" class="btn-primario">Ir a comprar →</a>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-logo">
+        <span>💻</span>
+        <span class="logo-nombre">TECNOLOGIS</span>
+      </div>
+      <div class="footer-links">
+        <a href="index.html">Inicio</a>
+        <a href="quienes-somos.html">Nosotros</a>
+        <a href="productos.html">Productos</a>
+        <a href="compra.html">Comprar</a>
+        <a href="contacto.html">Contacto</a>
+      </div>
+    </div>
+    <p class="footer-copy">© 2025 TECNOLOGIS · Tu tienda tech de confianza · Programación Web IEI-054 · Instituto Profesional Santo Tomás</p>
+  </footer>
+
+  <script src="js/app.js"></script>
+</body>
+</html>

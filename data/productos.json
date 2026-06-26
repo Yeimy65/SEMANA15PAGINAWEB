@@ -1,83 +1,173 @@
 [
   {
     "id": 1,
-    "nombre": "Audífonos Bluetooth NovaSound",
-    "descripcion": "Audífonos inalámbricos con cancelación de ruido y 20 horas de batería.",
-    "precio": 19990,
-    "stock": 15,
+    "nombre": "Audífonos Sony Premium",
+    "descripcion": "Audífonos inalámbricos con cancelación de ruido y 30 horas de batería.",
+    "precio": 189990,
+    "stock": 12,
     "categoria": "Audio",
-    "imagen": "img/audifonos.svg"
+    "imagen": "img/audifonos.jpg"
   },
   {
     "id": 2,
-    "nombre": "Mouse Gamer NovaClick",
-    "descripcion": "Mouse óptico de alta precisión con 6 botones programables y luces RGB.",
-    "precio": 14990,
-    "stock": 20,
-    "categoria": "Periféricos",
-    "imagen": "img/mouse.svg"
+    "nombre": "Audífonos Derives Pro",
+    "descripcion": "Audífonos de alta fidelidad con micrófono integrado y diadema ajustable.",
+    "precio": 79990,
+    "stock": 8,
+    "categoria": "Audio",
+    "imagen": "img/audifonosDERIBES.jpg"
   },
   {
     "id": 3,
-    "nombre": "Teclado Mecánico NovaType",
-    "descripcion": "Teclado mecánico retroiluminado, switches rojos, diseño compacto TKL.",
-    "precio": 29990,
-    "stock": 10,
-    "categoria": "Periféricos",
-    "imagen": "img/teclado.svg"
+    "nombre": "Audífonos Remix Bluetooth",
+    "descripcion": "Audífonos inalámbricos con control táctil y conexión multipunto.",
+    "precio": 59990,
+    "stock": 15,
+    "categoria": "Audio",
+    "imagen": "img/AudifonosREMIX.jpg"
   },
   {
     "id": 4,
-    "nombre": "Cargador Rápido NovaPower 30W",
-    "descripcion": "Cargador USB-C de carga rápida compatible con la mayoría de smartphones.",
-    "precio": 9990,
-    "stock": 30,
-    "categoria": "Energía",
-    "imagen": "img/cargador.svg"
+    "nombre": "Mouse Inalámbrico Ergonómico",
+    "descripcion": "Mouse inalámbrico de alta precisión, ideal para trabajo y diseño.",
+    "precio": 29990,
+    "stock": 20,
+    "categoria": "Periféricos",
+    "imagen": "img/mouseinalambrico.jpg"
   },
   {
     "id": 5,
-    "nombre": "Power Bank NovaCharge 10000mAh",
-    "descripcion": "Batería externa portátil con doble puerto USB y carga rápida de 18W.",
-    "precio": 17990,
-    "stock": 12,
-    "categoria": "Energía",
-    "imagen": "img/powerbank.svg"
+    "nombre": "Mouse Gamer RGB",
+    "descripcion": "Mouse gamer con 6 botones programables, luces RGB y sensor 6400 DPI.",
+    "precio": 44990,
+    "stock": 14,
+    "categoria": "Periféricos",
+    "imagen": "img/mouse.jpg"
   },
   {
     "id": 6,
-    "nombre": "Smartwatch NovaFit",
-    "descripcion": "Reloj inteligente con monitor de ritmo cardíaco, GPS y notificaciones.",
-    "precio": 39990,
-    "stock": 3,
-    "categoria": "Wearables",
-    "imagen": "img/smartwatch.svg"
+    "nombre": "Mouse Tecnológico Pro",
+    "descripcion": "Mouse de precisión con scroll horizontal, 7 botones y receptor nano USB.",
+    "precio": 34990,
+    "stock": 10,
+    "categoria": "Periféricos",
+    "imagen": "img/mousetecnologico.jpg"
   },
   {
     "id": 7,
-    "nombre": "Parlante Portátil NovaBeat",
-    "descripcion": "Parlante Bluetooth resistente al agua con sonido de alta fidelidad.",
-    "precio": 24990,
-    "stock": 14,
-    "categoria": "Audio",
-    "imagen": "img/parlante.svg"
+    "nombre": "Teclado Gamer Mecánico",
+    "descripcion": "Teclado mecánico retroiluminado RGB con switches azules y reposamuñecas.",
+    "precio": 64990,
+    "stock": 8,
+    "categoria": "Periféricos",
+    "imagen": "img/tecladogamer.jpg"
   },
   {
     "id": 8,
-    "nombre": "Soporte para Notebook NovaStand",
-    "descripcion": "Soporte ergonómico ajustable de aluminio para notebooks de 11 a 17 pulgadas.",
-    "precio": 12990,
-    "stock": 18,
-    "categoria": "Accesorios",
-    "imagen": "img/soporte.svg"
+    "nombre": "Teclado Compacto Silencioso",
+    "descripcion": "Teclado USB silencioso de bajo perfil, ideal para oficina y uso diario.",
+    "precio": 24990,
+    "stock": 22,
+    "categoria": "Periféricos",
+    "imagen": "img/teclados.jpg"
   },
   {
     "id": 9,
-    "nombre": "Hub USB-C NovaConnect 6 en 1",
-    "descripcion": "Hub multipuerto con HDMI, USB 3.0, lector SD y carga USB-C.",
-    "precio": 21990,
+    "nombre": "Cargador USB-C 65W",
+    "descripcion": "Cargador compacto de 65W compatible con laptops, tablets y smartphones.",
+    "precio": 29990,
+    "stock": 30,
+    "categoria": "Energía",
+    "imagen": "img/Cargador.jpg"
+  },
+  {
+    "id": 10,
+    "nombre": "Cargador 100W GaN",
+    "descripcion": "Cargador ultrarápido GaN con 4 puertos y pantalla de potencia.",
+    "precio": 49990,
+    "stock": 12,
+    "categoria": "Energía",
+    "imagen": "img/cargador100.jpg"
+  },
+  {
+    "id": 11,
+    "nombre": "Power Bank Portátil 20000mAh",
+    "descripcion": "Batería portátil con carga rápida 22.5W y tres puertos de salida.",
+    "precio": 39990,
+    "stock": 18,
+    "categoria": "Energía",
+    "imagen": "img/cargadorportatil.jpg"
+  },
+  {
+    "id": 12,
+    "nombre": "Smartwatch Fitness",
+    "descripcion": "Reloj inteligente con GPS, monitor cardíaco y 7 días de batería.",
+    "precio": 149990,
+    "stock": 3,
+    "categoria": "Wearables",
+    "imagen": "img/Smarwash.jpg"
+  },
+  {
+    "id": 13,
+    "nombre": "Smartwatch Premium AMOLED",
+    "descripcion": "Smartwatch con pantalla AMOLED, más de 100 modos deportivos y detección de caídas.",
+    "precio": 199990,
     "stock": 0,
+    "categoria": "Wearables",
+    "imagen": "img/smarwash1.jpg"
+  },
+  {
+    "id": 14,
+    "nombre": "Parlante Bluetooth Portátil",
+    "descripcion": "Parlante resistente al agua IP67 con 20 horas de reproducción.",
+    "precio": 69990,
+    "stock": 10,
+    "categoria": "Audio",
+    "imagen": "img/parlante.jpg"
+  },
+  {
+    "id": 15,
+    "nombre": "Parlante Genius 2.1",
+    "descripcion": "Sistema de audio 2.1 con subwoofer, control de volumen y entrada auxiliar.",
+    "precio": 54990,
+    "stock": 6,
+    "categoria": "Audio",
+    "imagen": "img/parlantegenius.jpg"
+  },
+  {
+    "id": 16,
+    "nombre": "Parlante Tech Inalámbrico",
+    "descripcion": "Parlante compacto Bluetooth 5.0 con micrófono y 10 horas de autonomía.",
+    "precio": 34990,
+    "stock": 14,
+    "categoria": "Audio",
+    "imagen": "img/parlantetec.jpg"
+  },
+  {
+    "id": 17,
+    "nombre": "Soporte para Notebook",
+    "descripcion": "Soporte ergonómico ajustable de aluminio para notebooks de 11 a 17 pulgadas.",
+    "precio": 19990,
+    "stock": 25,
     "categoria": "Accesorios",
-    "imagen": "img/hub.svg"
+    "imagen": "img/soporte.jpg"
+  },
+  {
+    "id": 18,
+    "nombre": "Soporte Alto Regulable",
+    "descripcion": "Soporte de escritorio de altura regulable con bandeja para teclado.",
+    "precio": 34990,
+    "stock": 9,
+    "categoria": "Accesorios",
+    "imagen": "img/soportealto.jpg"
+  },
+  {
+    "id": 19,
+    "nombre": "Soporte Monitor Articulado",
+    "descripcion": "Brazo articulado para monitor con rotación 360° y fijación VESA.",
+    "precio": 44990,
+    "stock": 7,
+    "categoria": "Accesorios",
+    "imagen": "img/soportecomputador.jpg"
   }
 ]
